@@ -1,16 +1,11 @@
 #!/bin/sh
 set -e
 
-echo "Waiting for /etc/letsencrypt/live/alchemorsel.com/fullchain.pem to appear..."
-tries=0
-while [ ! -f /etc/letsencrypt/live/alchemorsel.com/fullchain.pem ] && [ $tries -lt 10 ]; do
-  echo "Certificate not found. Sleeping..."
-  sleep 2
-  tries=$((tries+1))
-done
-
+echo "Checking for certificate files in /etc/letsencrypt..."
 if [ ! -f /etc/letsencrypt/live/alchemorsel.com/fullchain.pem ]; then
-  echo "Certificate file still not found after waiting. Exiting."
+  echo "ERROR: Valid CA-signed certificates not found at /etc/letsencrypt."
+  echo "Please generate your SSL certificates (using Certbot or another ACME client) on your host,"
+  echo "and ensure they are stored at the mounted directory so that /etc/letsencrypt/live/alchemorsel.com/fullchain.pem exists."
   exit 1
 fi
 
