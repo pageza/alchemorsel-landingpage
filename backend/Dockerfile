@@ -20,15 +20,16 @@ COPY --from=builder /app/main .
 RUN mkdir -p /run/postgresql && chown postgres:postgres /run/postgresql
 COPY entrypoint.sh /app/entrypoint.sh
 COPY supervisord.conf /app/supervisord.conf
-COPY .env /app/.env  # Ensure the .env file is copied
+# Ensure the .env file is copied
+COPY .env /app/.env
 RUN chmod +x /app/entrypoint.sh
 
 # Expose ports.
 EXPOSE 8080
 EXPOSE 80
 
-# Set environment variables for database connectivity.
-ENV DB_HOST=localhost  # Use localhost to match the .env file
+# Set environment variables for database connectivity. Use localhost to match the .env file.
+ENV DB_HOST=localhost
 ENV DB_PORT=5432
 ENV DB_USER=postgres
 ENV DB_PASSWORD=postgres
