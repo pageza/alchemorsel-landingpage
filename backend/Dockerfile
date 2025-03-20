@@ -30,7 +30,7 @@ EXPOSE 8080
 EXPOSE 80
 
 # Set environment variables for database connectivity. Use the container name for PostgreSQL.
-ENV PG_HOST=landingpage_postgres
+ENV PG_HOST=localhost
 ENV PG_PORT=5432
 ENV PG_USER=postgres
 ENV PG_PASSWORD=postgres
