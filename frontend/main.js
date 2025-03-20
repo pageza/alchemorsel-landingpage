@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
     try {
       // Use an absolute URL so that the request goes to the backend container on port 8080.
-      const response = await fetch('http://localhost:8080/subscribe', {
+      const response = await fetch('/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: email })
