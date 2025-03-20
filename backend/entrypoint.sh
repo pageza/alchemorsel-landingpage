@@ -15,11 +15,13 @@ if [ ! -f /var/lib/postgresql/data/PG_VERSION ]; then
   psql -U postgres -c "ALTER USER postgres WITH PASSWORD 'postgres';"
   psql -U postgres -c "CREATE DATABASE alchemorsel_db;"
   
+  echo "cursor--Applying database migrations..."
+  psql -U postgres -d alchemorsel_db -f /app/database.sql
+  
   su - postgres -c "pg_ctl -D /var/lib/postgresql/data -m fast -w stop"
+else
+  echo "cursor--PostgreSQL database already initialized, skipping initialization and migration"
 fi
-
-echo "cursor--Applying database migrations..."
-psql -U postgres -d alchemorsel_db -f /app/database.sql
 
 # Start supervisord which will run both PostgreSQL and the backend.
 exec supervisord -n -c /app/supervisord.conf 
