@@ -33,9 +33,8 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - certs_volume:/etc/letsencrypt
+      - /etc/letsencrypt:/etc/letsencrypt:ro
     restart: always
 
 volumes:
   postgres_data:
-  certs_volume:
