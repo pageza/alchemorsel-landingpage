@@ -29,10 +29,10 @@ EXPOSE 8080
 EXPOSE 80
 
 # Set environment variables for database connectivity. Use the container name for PostgreSQL.
-ENV DB_HOST=landingpage_postgres
-ENV DB_PORT=5432
-ENV DB_USER=postgres
-ENV DB_PASSWORD=postgres
-ENV DB_NAME=alchemorsel_db
+ENV PG_HOST=landingpage_postgres
+ENV PG_PORT=5432
+ENV PG_USER=postgres
+ENV PG_PASSWORD=postgres
+ENV PG_DB=alchemorsel_db
 
 ENTRYPOINT ["/app/entrypoint.sh"]
