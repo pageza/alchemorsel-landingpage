@@ -28,8 +28,8 @@ RUN chmod +x /app/entrypoint.sh
 EXPOSE 8080
 EXPOSE 80
 
-# Set environment variables for database connectivity. Use localhost to match the .env file.
-ENV DB_HOST=localhost
+# Set environment variables for database connectivity. Use the container name for PostgreSQL.
+ENV DB_HOST=landingpage_postgres
 ENV DB_PORT=5432
 ENV DB_USER=postgres
 ENV DB_PASSWORD=postgres
