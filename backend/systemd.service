@@ -1,0 +1,16 @@
+# cursor--Initial commit: Systemd service file to auto-restart the Go API on boot.
+# cursor--Update: Systemd service file for the AlcheMorsel landing page API.
+[Unit]
+Description=AlcheMorsel Landing Page Go API
+After=network.target
+
+[Service]
+Type=simple
+User=your_user
+WorkingDirectory=/path/to/alchemorsel-signup/backend
+ExecStart=/path/to/alchemorsel-signup/backend/main
+Restart=always
+EnvironmentFile=/path/to/alchemorsel-signup/backend/.env
+
+[Install]
+WantedBy=multi-user.target 

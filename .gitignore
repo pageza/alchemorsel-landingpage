@@ -1,0 +1,17 @@
+# cursor--Add: Basic gitignore to exclude sensitive files and build artifacts.
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build outputs
+/backend/main
+/backend/*.exe
+
+# Vendor directories (if any)
+vendor/
+
+# Docker override files
+docker-compose.override.yml 

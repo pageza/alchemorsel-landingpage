@@ -1,0 +1,151 @@
+<!-- cursor--Update: Update index.html with new landing page content -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlcheMorsel – A New Way to Experience Recipes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Root Variables for Theme */
+        :root {
+            --primary-color: #d2852e; /* Pumpkin Orange */
+            --secondary-color: #2e5339; /* Deep Green */
+            --background-color: #e7d9c5; /* Warm Beige */
+            --text-color: #3e2f1e; /* Dark Brown */
+            --accent-color: #6b7b52; /* Soft Olive */
+            --light-green: #a8c686; /* Light Green Accent */
+        }
+
+        /* General Page Styling */
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.3em;
+            color: var(--text-color);
+            max-width: 700px;
+            line-height: 1.5;
+        }
+
+        .email-form {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .email-input {
+            padding: 10px;
+            font-size: 1rem;
+            border: 2px solid var(--secondary-color);
+            border-radius: 5px;
+            outline: none;
+            width: 250px;
+        }
+
+        .cta-button {
+            padding: 10px 20px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s;
+        }
+
+        .cta-button:hover {
+            background: var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+        }
+
+        /* SweetAlert2 Custom Theme Styles */
+        .altheme-swal-popup {
+            background-color: var(--background-color) !important; /* Warm Beige */
+            color: var(--text-color) !important; /* Dark Brown */
+            font-family: 'Nunito', sans-serif;
+        }
+        .altheme-swal-confirm-button {
+            background-color: var(--primary-color) !important; /* Pumpkin Orange */
+            border: none !important;
+            border-radius: 5px !important;
+            padding: 10px 20px !important;
+            font-size: 1.2em !important;
+            font-weight: bold !important;
+            color: #fff !important;
+            cursor: pointer !important;
+        }
+    </style>
+</head>
+<body>
+    <h1>AlcheMorsel</h1>
+    <p>AlcheMorsel is a revolutionary app designed to transform how you explore, create, and experiment with recipes. Whether you're an experienced chef or just getting started in the kitchen, our intelligent tools will help you craft personalized, unique meals tailored to your tastes and available ingredients.</p>
+    <p>Join us on this journey and be the first to experience a whole new way of cooking. Sign up for updates below!</p>
+    <form class="email-form" id="signup-form">
+        <input type="email" class="email-input" id="email" placeholder="Enter your email" required>
+        <button type="submit" class="cta-button">Stay Updated</button>
+    </form>
+
+    <!-- Modal container removed in favor of SweetAlert2 popups -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="main.js?v=1.0.1"></script>
+</body>
+</html> 
