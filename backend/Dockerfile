@@ -22,6 +22,7 @@ COPY entrypoint.sh /app/entrypoint.sh
 COPY supervisord.conf /app/supervisord.conf
 # Ensure the .env file is copied
 COPY .env /app/.env
+COPY database.sql /app/database.sql
 RUN chmod +x /app/entrypoint.sh
 
 # Expose ports.

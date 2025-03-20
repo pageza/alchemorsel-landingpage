@@ -18,5 +18,8 @@ if [ ! -f /var/lib/postgresql/data/PG_VERSION ]; then
   su - postgres -c "pg_ctl -D /var/lib/postgresql/data -m fast -w stop"
 fi
 
+echo "cursor--Applying database migrations..."
+psql -U postgres -d alchemorsel_db -f /app/database.sql
+
 # Start supervisord which will run both PostgreSQL and the backend.
 exec supervisord -n -c /app/supervisord.conf 
