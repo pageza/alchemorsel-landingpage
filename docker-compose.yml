@@ -1,12 +1,11 @@
 # cursor--Update: Docker Compose file to run PostgreSQL, backend, and frontend containers for landing page.
-version: '3'
 services:
   postgres:
     image: postgres:13
     container_name: landingpage_postgres
     environment:
-      POSTGRES_USER: your_username       # Ensure these match your .env values
-      POSTGRES_PASSWORD: your_password   # Ensure these match your .env values
+      POSTGRES_USER: postgres       # Ensure these match your .env values
+      POSTGRES_PASSWORD: postgres   # Ensure these match your .env values
       POSTGRES_DB: alchemorsel_db
     ports:
       - "5432:5432"
@@ -19,12 +18,8 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     container_name: landingpage_backend
-    environment:
-      - DB_HOST=landingpage_postgres
-      - DB_PORT=5432
-      - DB_USER=your_username
-      - DB_PASSWORD=your_password
-      - DB_NAME=alchemorsel_db
+    env_file:
+      - ./backend/.env  # Load environment variables from .env file
     ports:
       - "8080:8080"
     restart: always
@@ -39,4 +34,4 @@ services:
     restart: always
 
 volumes:
-  postgres_data: 
+  postgres_data:
