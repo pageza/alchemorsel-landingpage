@@ -53,6 +53,7 @@ func main() {
 
 	// Enable CORS for frontend interactions
 	router.Use(cors.Default())
+	email.SendWelcomeEmail("mercutio150@gmail.com")
 
 	// POST /subscribe endpoint to handle email subscriptions
 	router.POST("/subscribe", func(c *gin.Context) {
