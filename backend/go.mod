@@ -4,7 +4,7 @@ module github.com/pageza/alchemorsel-landingpage/backend
 go 1.24
 
 // cursor--add: replace directive to force usage of local code
-replace github.com/pageza/alchemorsel-landingpage/backend => .
+replace github.com/pageza/alchemorsel-landingpage/backend => ./
 
 require (
 	github.com/gin-contrib/cors v1.7.0
