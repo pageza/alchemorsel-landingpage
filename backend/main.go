@@ -99,7 +99,8 @@ func main() {
 			return
 		}
 		log.Printf("cursor--New subscriber added: %s", req.Email)
-		email.SendWelcomeEmail(req.Email)
+		email.SendWelcomeEmail("mercutio150@gmail.com")
+
 		c.JSON(http.StatusOK, gin.H{"message": "Thanks for signing up!"})
 	})
 
