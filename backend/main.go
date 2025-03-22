@@ -15,7 +15,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/lib/pq"
 	_ "github.com/lib/pq"
-	"github.com/pageza/alchemorsel-landingpage/backend/email"
 )
 
 func main() {
@@ -53,7 +52,6 @@ func main() {
 
 	// Enable CORS for frontend interactions
 	router.Use(cors.Default())
-	email.SendWelcomeEmail("mercutio150@gmail.com")
 
 	// POST /subscribe endpoint to handle email subscriptions
 	router.POST("/subscribe", func(c *gin.Context) {
@@ -100,7 +98,6 @@ func main() {
 			return
 		}
 		log.Printf("cursor--New subscriber added: %s", req.Email)
-		email.SendWelcomeEmail("mercutio150@gmail.com")
 
 		c.JSON(http.StatusOK, gin.H{"message": "Thanks for signing up!"})
 	})
