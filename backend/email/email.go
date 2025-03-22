@@ -16,40 +16,63 @@ const welcomeEmailHTML = `
   <title>Welcome to AlcheMorsel – Your AI Culinary Companion!</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #f9f9f9;
-      color: #333;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fdf8f3;
+      color: #3e2f1e;
       margin: 0;
-      padding: 20px;
+      padding: 30px;
     }
     .container {
       max-width: 600px;
-      background: #fff;
-      padding: 20px;
+      background-color: #ffffff;
+      padding: 30px;
       margin: 0 auto;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     }
-    h1, h2 {
-      color: #222;
+    h1 {
+      color: #2e5339;
+      margin-bottom: 20px;
+    }
+    h2 {
+      color: #d2852e;
+      margin-top: 30px;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
     }
     ul {
       margin-left: 20px;
+      padding-left: 0;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    strong {
+      color: #2e5339;
     }
     .footer {
-      margin-top: 30px;
+      margin-top: 40px;
       font-size: 0.9em;
-      color: #777;
+      color: #6b7b52;
+    }
+    .header-bar {
+      height: 5px;
+      background: linear-gradient(to right, #d2852e, #2e5339);
+      border-radius: 4px 4px 0 0;
+      margin-bottom: 25px;
     }
   </style>
 </head>
 <body>
   <div class="container">
+    <div class="header-bar"></div>
     <h1>Welcome to AlcheMorsel – Your AI Culinary Companion!</h1>
     <p>Hi there,</p>
     <p>Thank you for joining <strong>AlcheMorsel</strong> – where we turn everyday ingredients into extraordinary meals!</p>
     <p>At AlcheMorsel, our innovative AI-driven recipe generator takes what you have in your pantry and transforms it into creative, personalized recipes that inspire you to try something new every day.</p>
+    
     <h2>What's in store for you:</h2>
     <ul>
       <li><strong>Smart Recipe Generation:</strong> Simply input your available ingredients, and we'll craft unique recipes tailored just for you.</li>
@@ -57,12 +80,15 @@ const welcomeEmailHTML = `
       <li><strong>Personalized Cooking Experience:</strong> The more you use AlcheMorsel, the better our recommendations become, perfectly matching your tastes.</li>
       <li><strong>Community & Inspiration:</strong> Share your culinary creations and join a community of food enthusiasts eager to explore fresh ideas.</li>
     </ul>
+    
     <p>We're continually refining our platform and adding exciting new features to enhance your cooking journey. Your feedback is invaluable—feel free to reply to this email with any thoughts or suggestions!</p>
+    
     <p>Happy cooking and welcome aboard!</p>
     <p class="footer">Warm regards,<br>The AlcheMorsel Team</p>
   </div>
 </body>
 </html>
+
 `
 
 // SendWelcomeEmail sends a welcome email to the provided recipient.
