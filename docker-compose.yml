@@ -19,7 +19,9 @@ services:
       dockerfile: Dockerfile
     container_name: landingpage_backend
     env_file:
-      - ./backend/.env  # Load environment variables from .env file
+      - ./backend/.env  # Ensure this file sets PG_PORT, PG_USER, etc.
+    environment:
+      PG_HOST: landingpage_postgres
     ports:
       - "8080:8080"
     restart: always
