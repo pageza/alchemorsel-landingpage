@@ -14,7 +14,7 @@ import (
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/lib/pq"
-	_ "github.com/lib/pq"
+	"github.com/pageza/alchemorsel-landingpage/backend/email"
 )
 
 func main() {
@@ -98,6 +98,8 @@ func main() {
 			return
 		}
 		log.Printf("cursor--New subscriber added: %s", req.Email)
+		// Send the welcome email asynchronously.
+		go email.SendWelcomeEmail(req.Email)
 
 		c.JSON(http.StatusOK, gin.H{"message": "Thanks for signing up!"})
 	})
